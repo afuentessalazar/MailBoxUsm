@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { LoginComponent } from './login/login.component'; // Asegurarse de que el import es correcto
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', // Cambiar el selector a 'app-root'
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [LoginComponent, RouterOutlet, RouterLink], // Importar LoginComponent
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'mailbox';

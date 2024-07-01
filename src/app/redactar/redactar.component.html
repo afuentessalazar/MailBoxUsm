@@ -1,0 +1,21 @@
+<div class="redactar-container">
+  <h1>Redactar Comunicado</h1>
+  <div class="formulario">
+    <div class="campo">
+      <label for="carrera">Carrera:</label>
+      <select id="carrera" [(ngModel)]="selectedCarrera" class="form-control">
+        <option disabled selected>Selecciona una carrera</option>
+        <option *ngFor="let carrera of carreras" [value]="carrera">{{ carrera }}</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label for="paralelo">Paralelo:</label>
+      <select id="paralelo" [(ngModel)]="selectedParalelo" class="form-control">
+        <option disabled selected>Selecciona un paralelo</option>
+        <option *ngFor="let paralelo of paralelos" [value]="paralelo">{{ paralelo }}</option>
+      </select>
+    </div>
+    <textarea id="comunicado" [(ngModel)]="tituloComunicado" placeholder="Escribe aquí tu comunicado..." class="form-control"></textarea>
+    <button type="button" class="btn-enviar" (click)="enviarComunicado(tituloComunicado)">Enviar</button>
+  </div>
+</div>

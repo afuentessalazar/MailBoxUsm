@@ -1,0 +1,59 @@
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; // Altura total del viewport para centrar el formulario de login verticalmente
+  width: 100vw; // Ancho total del viewport
+  background-color: #383838; // Fondo más oscuro para crear profundidad
+  overflow: hidden; // Ocultar cualquier desbordamiento de este contenedor
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #424242; // Color del card similar al card-container
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 25%; // Ancho fijo
+  box-sizing: border-box; // Incluir padding y border dentro de las dimensiones calculadas
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 15px; // Espaciado entre campos de formulario
+}
+
+label {
+  color: white; // Color de la etiqueta para mejorar la visibilidad en fondo oscuro
+  display: block; // Asegura que la etiqueta esté en su propia línea
+  margin-bottom: 5px; // Espacio entre la etiqueta y el campo de entrada
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #555; // Borde sutil para los inputs
+  background-color: #333; // Fondo oscuro para los inputs
+  color: white; // Texto en color blanco para contraste
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff; // Azul brillante para los botones
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0; // Margen entre botones
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3; // Azul más oscuro para el efecto hover
+  }
+}

@@ -1,10 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component'; // Importar LoginComponent
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      declarations: [AppComponent, LoginComponent], // Declarar los componentes
+      imports: [FormsModule], // Importar FormsModule
     }).compileComponents();
   });
 

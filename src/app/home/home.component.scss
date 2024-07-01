@@ -1,0 +1,42 @@
+.background-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; // Altura total del viewport
+  width: 100vw; // Ancho total del viewport
+  background-color: #383838; // Fondo más oscuro para crear profundidad
+  overflow: hidden; // Ocultar cualquier desbordamiento de este contenedor
+  padding: 0; // Asegúrate de que no hay padding que pueda causar desbordamiento
+  margin: 0; // Elimina cualquier margen que pueda influir en el tamaño del viewport
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; // Asegura una alineación centralizada
+  background-color: #424242; // Color del card
+  padding: 20px; // Padding consistente
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 350px; // Ancho fijo
+  max-height: calc(100vh - 40px); // Altura máxima calculada basada en el viewport menos el padding vertical total
+  box-sizing: border-box; // Incluir padding y border dentro de las dimensiones calculadas
+}
+
+button {
+  width: 100%; // Botones que ocupan todo el ancho del contenedor
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff; // Color destacado para los botones
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0; // Reducción del margen para minimizar el espacio extra
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3; // Efecto hover oscuro
+  }
+}
