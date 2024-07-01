@@ -7,23 +7,25 @@
     <link rel="stylesheet" href="./comunicados.component.scss">
 </head>
 <body>
-    <div class="comunicados-container">
-        <div class="filtros">
-            <select class="filtro-carrera">
-                <option value="" disabled selected>Filtro de carreras</option>
-                <option *ngFor="let carrera of carreras" [value]="carrera">{{ carrera }}</option>
-            </select>
-            <select class="filtro-paralelo">
-                <option value="" disabled selected>Filtro paralelo</option>
-                <option *ngFor="let paralelo of paralelos" [value]="paralelo">{{ paralelo }}</option>
-            </select>
-        </div>
-        <div *ngIf="comunicados.length > 0" class="lista-comunicados">
-            <div class="comunicado" *ngFor="let comunicado of comunicados; let i = index">
-              <span>{{ comunicado.titulo }}</span>
-              <button class="btn-eliminar" (click)="eliminarComunicado(i)">X</button>
-            </div>
+    <!-- Comunicados.component.html -->
+<div class="comunicados-container">
+    <div class="filtros">
+        <select class="filtro-carrera" [(ngModel)]="selectedCarrera" (change)="filtrarComunicados()">
+            <option value="" disabled selected>Filtro de carreras</option>
+            <option *ngFor="let carrera of carreras" [value]="carrera">{{ carrera }}</option>
+        </select>
+        <select class="filtro-paralelo" [(ngModel)]="selectedParalelo" (change)="filtrarComunicados()">
+            <option value="" disabled selected>Filtro paralelo</option>
+            <option *ngFor="let paralelo of paralelos" [value]="paralelo">{{ paralelo }}</option>
+        </select>
+    </div>
+    <div *ngIf="comunicadosFiltrados.length > 0" class="lista-comunicados">
+        <div class="comunicado" *ngFor="let comunicado of comunicadosFiltrados; let i = index">
+            <span>{{ comunicado.titulo }} - {{ comunicado.carrera }} - {{ comunicado.paralelo }}</span>
+            <button class="btn-eliminar" (click)="eliminarComunicado(i)">X</button>
         </div>
     </div>
+</div>
+
 </body>
 </html>
