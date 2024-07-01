@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComunicadosService } from '../services/comunicados.service';
 import { RedactarComponent } from '../redactar/redactar.component';
-import { FormsModule } from '@angular/forms'; // Importar FormsModule
+import { HomeComponent } from '../home/home.component';
+import { FormsModule } from '@angular/forms'; 
+import { RouterOutlet, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-comunicados',
   standalone: true,
-  imports: [CommonModule, RedactarComponent,FormsModule],
+  imports: [HomeComponent ,CommonModule, RedactarComponent,FormsModule,RouterOutlet, RouterLink],
   templateUrl: './comunicados.component.html',
   styleUrl: './comunicados.component.scss'
 })

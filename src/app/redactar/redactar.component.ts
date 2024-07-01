@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
-import { ComunicadosService } from '../services/comunicados.service'; // Asegúrate de crear este servicio
-import { FormsModule, } from '@angular/forms'; // Importar FormsModule
+import { ComunicadosService } from '../services/comunicados.service'; 
+import { FormsModule, } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
 
 
@@ -28,7 +28,7 @@ export class RedactarComponent {
         carrera: this.selectedCarrera,
         paralelo: this.selectedParalelo
       });
-      this.router.navigate(['/home']); // Navegar a 'home' después de añadir el comunicado
+      this.router.navigate(['/home']); 
     } else {
       alert("Por favor, complete todos los campos requeridos antes de enviar.");
     }

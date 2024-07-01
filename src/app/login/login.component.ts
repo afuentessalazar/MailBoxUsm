@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsModule
+import { FormsModule } from '@angular/forms'; 
 import { HomeComponent } from '../home/home.component';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HomeComponent,RouterOutlet, RouterLink],  // Añadir FormsModule aquí correctamente
+  imports: [FormsModule, HomeComponent,RouterOutlet, RouterLink], 
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
