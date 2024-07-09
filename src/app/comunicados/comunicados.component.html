@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./comunicados.component.scss">
 </head>
 <body>
-    <!-- Comunicados.component.html -->
 <div class="comunicados-container">
     <div class="filtros">
         <select class="filtro-carrera" [(ngModel)]="selectedCarrera" (change)="filtrarComunicados()">
@@ -19,14 +18,18 @@
             <option *ngFor="let paralelo of paralelos" [value]="paralelo">{{ paralelo }}</option>
         </select>
     </div>
-    <div *ngIf="comunicadosFiltrados.length > 0" class="lista-comunicados">
-        <div class="comunicado" *ngFor="let comunicado of comunicadosFiltrados; let i = index">
-            <span>{{ comunicado.titulo }} - {{ comunicado.carrera }} - {{ comunicado.paralelo }}</span>
-            <button class="btn-eliminar" (click)="eliminarComunicado(i)">X</button>
-        </div>
-    </div>
-    <button mat-raised-button color="primary" routerLink="/home">atras</button>
+    <mat-list *ngIf="comunicadosFiltrados.length > 0" class="lista-comunicados">
+        <mat-list-item *ngFor="let comunicado of comunicadosFiltrados; let i = index">
+            <div class="comunicado">
+                <span>{{ comunicado.titulo }} - {{ comunicado.carrera }} - {{ comunicado.paralelo }}</span>
+                <div class="action-buttons">
+                    <button mat-button class="btn-editar" (click)="editarComunicado(comunicado)">Editar</button>
+                    <button mat-button class="btn-eliminar" (click)="eliminarComunicado(i)">X</button>
+                </div>
+            </div>
+        </mat-list-item>
+    </mat-list>
+    <button *ngIf="userType === 'docente'" mat-raised-button color="primary" routerLink="/home">Atrás</button>
 </div>
-
 </body>
 </html>

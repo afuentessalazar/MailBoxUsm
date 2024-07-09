@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComunicadosService } from '../services/comunicados.service';
-import { RedactarComponent } from '../redactar/redactar.component';
-import { HomeComponent } from '../home/home.component';
 import { FormsModule } from '@angular/forms'; 
-import { RouterOutlet, RouterLink } from '@angular/router';
-
+import { Router, RouterLink } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-comunicados',
   standalone: true,
-  imports: [HomeComponent ,CommonModule, RedactarComponent,FormsModule,RouterOutlet, RouterLink],
+  imports: [CommonModule, FormsModule, MatListModule, HomeComponent, RouterLink],
   templateUrl: './comunicados.component.html',
-  styleUrl: './comunicados.component.scss'
+  styleUrls: ['./comunicados.component.scss']
 })
 export class ComunicadosComponent implements OnInit {
   comunicados: any[] = [];
@@ -21,13 +20,15 @@ export class ComunicadosComponent implements OnInit {
   paralelos: string[] = [];
   selectedCarrera: string = '';
   selectedParalelo: string = '';
+  userType: string = ''; 
 
-  constructor(private comunicadosService: ComunicadosService) {}
+  constructor(private comunicadosService: ComunicadosService, private router: Router) {}
 
   ngOnInit(): void {
     this.carreras = this.comunicadosService.getCarreras();
     this.paralelos = this.comunicadosService.getParalelos();
     this.cargarComunicados();
+    this.userType = this.comunicadosService.getUserType();
   }
 
   cargarComunicados() {
@@ -45,5 +46,10 @@ export class ComunicadosComponent implements OnInit {
   eliminarComunicado(index: number) {
     this.comunicadosService.deleteComunicado(index);
     this.cargarComunicados();
+  }
+
+  editarComunicado(comunicado: any): void {
+    this.comunicadosService.setComunicadoActual(comunicado);
+    this.router.navigate(['/redactar']);
   }
 }

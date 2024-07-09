@@ -1,20 +1,37 @@
 <div class="background-container">
-    <div class="card-container">
-      <!-- Espacio para la foto del usuario -->
-      <div class="user-photo">
-        <input type="file" id="file-input" hidden>
-        <label for="file-input" class="photo-label">
-          <i class="fas fa-camera"></i> Subir Foto
-        </label>
-      </div>
-      <!-- Detalles de usuario -->
-      <div class="user-details">
-        <p><strong>Nombre:</strong> [Nombre del Usuario]</p>
-        <p><strong>Apellidos:</strong> [Apellidos del Usuario]</p>
-        <p><strong>Carrera:</strong> [Carrera del Usuario]</p>
-        <p><strong>Materias Activas:</strong> [Listado de Materias]</p>
-      </div>
-      <button mat-raised-button color="primary" routerLink="/home"> Atras</button>
+  <div class="card-container">
+    <!-- Espacio para la foto del usuario -->
+    <div class="user-photo">
+      <input type="file" id="file-input" hidden>
+      <label for="file-input" class="photo-label">
+        <i class="fas fa-camera"></i> Subir Foto
+      </label>
     </div>
+    <!-- Detalles de usuario -->
+    <div class="user-details">
+      <div>
+        <label for="nombre"><strong>Nombre:</strong></label>
+        <input id="nombre" type="text" [(ngModel)]="nombreUsuario">
+      </div>
+      <div>
+        <label for="apellidos"><strong>Apellidos:</strong></label>
+        <input id="apellidos" type="text" [(ngModel)]="apellidoUsuario">
+      </div>
+      <div>
+        <label for="carrera"><strong>Carrera:</strong></label>
+        <select id="carrera" [(ngModel)]="carreraUsuario">
+          <option value="" disabled selected>Seleccione carrera</option>
+          <!-- Opciones de carreras vendrán aquí -->
+        </select>
+      </div>
+      <div>
+        <label for="materias"><strong>Materias Activas:</strong></label>
+        <select id="materias" [(ngModel)]="materiasUsuario">
+          <option value="" disabled selected>Seleccione materias</option>
+          <!-- Opciones de materias vendrán aquí -->
+        </select>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" routerLink="/home">Atras</button>
   </div>
-  
+</div>
